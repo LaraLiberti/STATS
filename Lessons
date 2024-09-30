@@ -352,3 +352,280 @@ new_vec
 #sequence of numbers
 1:3
 5:20
+
+
+#################
+# Third lesson
+
+#decimal digits
+.1
+.254374
+
+#multiple commands in the same line
+a <- 5 ; b <- 3
+
+#VECTORS ripasso
+
+vec <- c(2,4,2,5)
+length(vec)
+
+vec2 <- c("a","b","c","d")
+vec2[1:2]
+vec2[-3]
+
+filter <- c(1,2)
+vec2[filter]
+
+vec2[length(vec2)]  #selects the last element of the vector
+
+vec3 <- vec2[c(4,3,2,1)]
+vec3
+
+
+#filtering using a logical vector
+logi_filter <- c(TRUE, FALSE, FALSE, TRUE)
+vec2[logi_filter]
+
+vec2[vec2 != "a"]
+vec2[vec2 == "c"]
+
+age <- c(22,34,21,29)
+age[age >= 22]
+
+#other ways to create vectors
+ v1 <- 1:6
+v1
+
+v2 <- 0.1:2.5
+v2
+
+#with the function rep
+
+v3 <- rep(x=2, times=6)
+v3
+
+rep(2, 6)
+rep(6, 2)
+rep(times=6, x=2)
+
+v4 <- rep(1:2, 3)
+v4
+
+v5 <- rep(1:2, each= 3)
+v5
+
+v6 <- rep(1:4, lenght.out = 3) #?
+v6
+
+# creating vectors with the function sequence -> seq
+seq(from = 3, to= 10, by=0.4)
+seq(3,10,0.4)
+
+seq(1,9, length.out = 13)
+
+###
+
+rep(TRUE, 4)
+rep("a", 4)    #ripete 
+
+###
+# creating sequence of letters 
+letters[1:4]
+LETTERS[1:4]
+
+# how to create empty vectors
+e1 <- c()
+e1
+
+e2 <- rep(NA, 10) #NA: not available
+e2
+
+#assigning values
+e1[2] <- 3
+e1
+
+e2[2] <- 3
+e2
+
+v1
+v1 [7] <- 7
+v1
+
+v1 [1] <- 100
+v1
+
+v1 <- 1:6
+
+#exercize: replace the second and the third element and set them equal to 100
+
+v1[2] <- 100
+v1[3] <- 100
+v1
+
+#or you can do it like this
+
+v1[c(2,3)] <- 100
+v1
+
+v1[c(2,3)] <- c(2^3,3^2)
+v1
+
+v1[c(2,3)] <- c(1,2,3) #non corretto
+
+
+# create vectors by combinig vectors
+
+v1 <- 1:6
+v2 <- rep(1,3)
+
+comb_vec <- c(v1,v2)
+comb_vec
+
+#name the elements of vectors
+
+num_plants <- c("Species1" = 20, "Species2" = 10, "Species3" =1)
+num_plants
+
+typeof(num_plants)
+class(num_plants)
+
+names(num_plants)
+names(num_plants) <- c("S1", "S2", "S3")
+num_plants
+
+
+vec_of_names <- c("S1", "S2", "S3")
+names(num_plants) <- vec_of_names
+num_plants
+
+
+names(num_plants)[1] <- "abcd"
+num_plants
+
+#add names to an existing vector
+
+age
+names(age) <- c("stud1", "stud2", "stud3", "stud4")
+age
+
+# delete names
+
+names(age) <- NULL
+age
+
+#OPERATIONS W VECTORS
+v1 <- 1:6
+v2 <- rep(1, 6)
+v3 <- seq(100, 103, by=1)
+
+length(v1)
+length(v2)
+length(v3)
+
+v1+v2 #element-wise addition
+v1*v2
+
+v1+100
+v1+ rep(100, 6)
+
+#dot product
+c(1,2,3)%*%c(1,2,3)
+
+v1+v3
+
+
+?c(1,2,3)%*%c(1,2,3)  #Multiplies two matrices
+
+
+1+100
+
+v1
+v3
+
+
+a <- seq(1:100, length=1)
+
+#useful functions
+
+v1
+sum(v1)
+mean(v1)
+min(v1)
+max(v1)
+
+?mean(v1) #media
+
+round(c(1.234233, 3.238342), digits = 2)
+
+prod(v1)
+cumsum(v1)
+cumprod(v1)
+
+?prod(V1) #returns the product of all the values present in its arguments.
+?cumsum(v1) #Returns a vector whose elements are the cumulative sums, products, minima or maxima of the elements of the argument.
+?cumprod(v1)
+
+v_long <- seq(4, 20, by=0.5)
+head(v_long)
+tail(v_long)
+
+
+# which: gives the position given by the logical operation
+
+v <- c(2,4,5,2,4,8)
+which(v ==2)
+which(v > 4)
+
+which.min(v)
+which.max(v)
+
+summary(v)
+
+
+enrolled <- c(TRUE, FALSE,TRUE, FALSE,TRUE, FALSE,TRUE, FALSE)
+length(enrolled)
+sum(enrolled) #frequency
+mean(enrolled) #relative frequency
+
+sum( c("a","b") ) #non valido 
+
+
+
+#vector coercition ##obbligo imposto
+
+v.comb <- c( "Today", "is", 2, "of Oct")
+v.comb
+
+v.comb2 <- c(TRUE, 2, FALSE, 4)
+v.comb2
+
+v.comb3 <- c(TRUE, 2, FALSE, 4, "aaaa")
+v.comb3
+
+
+#Testing types
+
+vlogi <- c(T, F, T, F)
+
+is.logical(vlogi)
+is.logical(c(1,2,3))
+
+is.numeric(vlogi)
+is.numeric(c(1,2,3))
+
+is.character(c(1,2,3))
+is.character(letters[1:3])
+
+
+
+##changing type of vectos
+
+vlogi <- c(T, F, T, F)
+
+as.numeric(vlogi)
+as.character(vlogi)
+as.integer(c(1.2,2.5,4.9))
+
+as.numeric(c("a", "b", "b")) #NA introdotti per coercizione 
+
+as.logical(c(-1, 2, 0, 1))
